@@ -1,8 +1,5 @@
 # VIGENERE-CIPHER
-## EX. NO: 4
- 
-
-## IMPLEMETATION OF VIGENERE CIPHER
+## EX. NO: 4 IMPLEMETATION OF VIGENERE CIPHER
  
 
 ## AIM:
@@ -30,7 +27,32 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM
+```
+#include <stdio.h>
+ #include <string.h>
+ void vigenereCipher(char *text, char *key, int decrypt) {
+ int len = strlen(text), keyLen = strlen(key);
+ for (int i = 0; i < len; i++) {
+ int shift = key[i % keyLen]- 'A';
+ text[i] = 'A' + (text[i]- 'A' + (decrypt ? 26- shift : shift)) % 26;
+ }
+ }
+ int main() {
+ char text[] = "RUTU", key[] = "KEY";
+ vigenereCipher(text, key, 0);
+ printf("Encrypted Message: %s\n", text);
+ vigenereCipher(text, key, 1);
+ printf("Decrypted Message: %s\n", text);
+ return 0;
+ }
 
+```
 ## OUTPUT
 
+<img width="442" height="109" alt="crypto4" src="https://github.com/user-attachments/assets/3b9fc2c7-e0bd-44c1-8ad6-780d5b825cd6" />
+
+
 ## RESULT
+
+Thus the implementation of the Vigenere Cipher is executed successfully.
+
